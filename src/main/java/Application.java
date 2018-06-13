@@ -1,9 +1,8 @@
 import br.com.upperapps.sakilasparkapi.enums.Environment;
 import br.com.upperapps.sakilasparkapi.jooq.tables.Actor;
-import br.com.upperapps.sakilasparkapi.jooq.tables.records.ActorRecord;
-import br.com.upperapps.sakilasparkapi.util.IJDBCProperties;
-import br.com.upperapps.sakilasparkapi.util.JDBCConnection;
-import br.com.upperapps.sakilasparkapi.util.MySQLPropertiesImpl;
+import br.com.upperapps.sakilasparkapi.infra.IJDBCProperties;
+import br.com.upperapps.sakilasparkapi.infra.JDBCConnection;
+import br.com.upperapps.sakilasparkapi.infra.MySQLPropertiesImpl;
 import org.jooq.DSLContext;
 import org.jooq.Record;
 import org.jooq.Result;

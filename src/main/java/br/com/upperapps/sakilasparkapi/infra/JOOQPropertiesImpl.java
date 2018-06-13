@@ -1,4 +1,4 @@
-package br.com.upperapps.sakilasparkapi.util;
+package br.com.upperapps.sakilasparkapi.infra;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,7 +11,7 @@ import java.util.Properties;
 
 public class JOOQPropertiesImpl  implements IJOOQProperties{
 
-    public static final Logger logger = LoggerFactory.getLogger(JOOQPropertiesImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(JOOQPropertiesImpl.class);
 
     private String generator;
     private String database;

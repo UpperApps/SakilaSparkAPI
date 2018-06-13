@@ -1,4 +1,4 @@
-package br.com.upperapps.sakilasparkapi.util;
+package br.com.upperapps.sakilasparkapi.infra;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,7 +11,7 @@ import java.util.Properties;
 
 public class MySQLPropertiesImpl implements IJDBCProperties{
 
-    public static final Logger logger = LoggerFactory.getLogger(MySQLPropertiesImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(MySQLPropertiesImpl.class);
 
     private String driver;
     private String URL;
@@ -20,7 +20,7 @@ public class MySQLPropertiesImpl implements IJDBCProperties{
 
     /**
      *
-     * @param environment
+     * @param environment Set the applçication environment.
      */
     public MySQLPropertiesImpl(String environment) {
         Properties properties = getProperties(environment);

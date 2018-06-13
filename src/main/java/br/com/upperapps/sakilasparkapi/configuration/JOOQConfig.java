@@ -1,15 +1,14 @@
 package br.com.upperapps.sakilasparkapi.configuration;
 
 import br.com.upperapps.sakilasparkapi.enums.Environment;
-import br.com.upperapps.sakilasparkapi.util.IJDBCProperties;
-import br.com.upperapps.sakilasparkapi.util.IJOOQProperties;
-import br.com.upperapps.sakilasparkapi.util.JOOQPropertiesImpl;
-import br.com.upperapps.sakilasparkapi.util.MySQLPropertiesImpl;
+import br.com.upperapps.sakilasparkapi.infra.IJDBCProperties;
+import br.com.upperapps.sakilasparkapi.infra.IJOOQProperties;
+import br.com.upperapps.sakilasparkapi.infra.JOOQPropertiesImpl;
+import br.com.upperapps.sakilasparkapi.infra.MySQLPropertiesImpl;
 import org.jooq.codegen.GenerationTool;
 import org.jooq.meta.jaxb.*;
 
 import java.io.File;
-import java.util.Properties;
 
 /**
  * @author Rodrigo Melo
@@ -27,26 +26,26 @@ public class JOOQConfig {
         IJDBCProperties jdbcProps = new MySQLPropertiesImpl(Environment.DSV.toString());
         IJOOQProperties jooqProps = new JOOQPropertiesImpl(Environment.DSV.toString());
 
-/*        Configuration configuration = new Configuration();
+        Configuration configuration = new Configuration();
         configuration.withJdbc(new Jdbc()
                 .withDriver(jdbcProps.getDriver())
                 .withUrl(jdbcProps.getURL())
                 .withUser(jdbcProps.getUser())
-                .withPassword(jdbcProps.getPassword()));
-        configuration.withGenerator(new Generator()
+                .withPassword(jdbcProps.getPassword()))
+                .withGenerator(new Generator()
                 .withName(jooqProps.getGenerator())
                 .withDatabase(new Database()
                         .withName(jooqProps.getDatabase())
                         .withIncludes(".*")
                         .withExcludes("")
-                        .withInputSchema(jooqProps.getSchema())
-                        .withGenerate(new Generate()
-                                .withJavadoc(true))
-                        .withTarget(new Target()
-                                .withPackageName("br.com.upperapps.sakilasparkapi.jooq")
-                                .withDirectory(pathDirectory + "\\src\\main\\java")));
+                        .withInputSchema(jooqProps.getSchema()))
+                .withGenerate(new Generate()
+                        .withJavadoc(true))
+                .withTarget(new Target()
+                        .withPackageName("br.com.upperapps.sakilasparkapi.jooq")
+                        .withDirectory(pathDirectory + "\\src\\main\\java")));
 
-        GenerationTool.generate(configuration);*/
+        GenerationTool.generate(configuration);
     }
 
 }

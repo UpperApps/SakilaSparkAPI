@@ -1,9 +1,8 @@
-package br.com.upperapps.sakilasparkapi.util;
+package br.com.upperapps.sakilasparkapi.infra;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Properties;
 
 public class JDBCConnection {
 
@@ -12,7 +11,7 @@ public class JDBCConnection {
     public static Connection getConnection(IJDBCProperties props) {
 
         try {
-            Class.forName(((MySQLPropertiesImpl) props).getDriver()).newInstance();
+            Class.forName(props.getDriver()).newInstance();
             connection = DriverManager.getConnection(props.getURL(), props.getUser(), props.getURL());
         } catch (InstantiationException e) {
             e.printStackTrace();

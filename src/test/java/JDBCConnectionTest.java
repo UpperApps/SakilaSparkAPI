@@ -1,7 +1,7 @@
 import br.com.upperapps.sakilasparkapi.enums.Environment;
-import br.com.upperapps.sakilasparkapi.util.IJDBCProperties;
-import br.com.upperapps.sakilasparkapi.util.JDBCConnection;
-import br.com.upperapps.sakilasparkapi.util.MySQLPropertiesImpl;
+import br.com.upperapps.sakilasparkapi.infra.IJDBCProperties;
+import br.com.upperapps.sakilasparkapi.infra.JDBCConnection;
+import br.com.upperapps.sakilasparkapi.infra.MySQLPropertiesImpl;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
