@@ -6,16 +6,17 @@ import br.com.upperapps.sakilasparkapi.infra.IJOOQProperties;
 import br.com.upperapps.sakilasparkapi.infra.JOOQPropertiesImpl;
 import br.com.upperapps.sakilasparkapi.infra.MySQLPropertiesImpl;
 import org.jooq.codegen.GenerationTool;
+import org.jooq.codegen.JavaGenerator;
 import org.jooq.meta.jaxb.*;
 
 import java.io.File;
 
 /**
  * @author Rodrigo Melo
- * @since 2018-06-10
  * @version 1.0
- *
+ * <p>
  * Configuration class for JOOQ with a MySQL databese.
+ * @since 2018-06-10
  */
 
 public class JOOQConfig {
@@ -27,23 +28,31 @@ public class JOOQConfig {
         IJOOQProperties jooqProps = new JOOQPropertiesImpl(Environment.DSV.toString());
 
         Configuration configuration = new Configuration();
+
         configuration.withJdbc(new Jdbc()
                 .withDriver(jdbcProps.getDriver())
                 .withUrl(jdbcProps.getURL())
                 .withUser(jdbcProps.getUser())
                 .withPassword(jdbcProps.getPassword()))
                 .withGenerator(new Generator()
-                .withName(jooqProps.getGenerator())
-                .withDatabase(new Database()
-                        .withName(jooqProps.getDatabase())
-                        .withIncludes(".*")
-                        .withExcludes("")
-                        .withInputSchema(jooqProps.getSchema()))
-                .withGenerate(new Generate()
-                        .withJavadoc(true))
-                .withTarget(new Target()
-                        .withPackageName("br.com.upperapps.sakilasparkapi.jooq")
-                        .withDirectory(pathDirectory + "\\src\\main\\java")));
+                        .withName(jooqProps.getGenerator())
+                        .withGenerate(new Generate()
+                                .withJavadoc(true)
+                                .withPojos(true)
+                                .withInterfaces(true)
+                                .withDaos(true)
+                        )
+                        .withDatabase(new Database()
+                                .withName(jooqProps.getDatabase())
+                                .withIncludes(".*")
+                                .withExcludes("")
+                                .withInputSchema(jooqProps.getSchema())
+                        )
+                        .withTarget(new Target()
+                                .withPackageName("br.com.upperapps.sakilasparkapi.jooq")
+                                .withDirectory(pathDirectory + "\\src\\main\\java")
+                        )
+                );
 
         GenerationTool.generate(configuration);
     }
